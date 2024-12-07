@@ -71,7 +71,7 @@ let solve2 (m, us) =
   |> List.map fix 
   |> sum_middle
 
-let data = open_in "input.txt" |> In_channel.input_lines |> parse
+let data = Aoc2024.parse parse
 
 let () =
   solve1 data |> print_int;

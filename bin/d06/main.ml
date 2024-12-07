@@ -10,12 +10,6 @@ end
 module S = Set.Make(IP)
 module M = Map.Make(IP)
 
-let parse lines =
-  lines
-  |> List.map (fun str ->
-      String.to_seq str |> Array.of_seq)
-  |> Array.of_list
-
 let turn_right (dx, dy) =
   ~-dy, dx
 
@@ -74,7 +68,7 @@ let solve2 map spos =
     path;
   !cnt
 
-let data = open_in "input.txt" |> In_channel.input_lines |> parse
+let data = Aoc2024.read_as_mat ()
 
 let () =
   let spos =

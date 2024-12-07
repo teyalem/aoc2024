@@ -34,7 +34,7 @@ let solve calc ps =
       else None)
   |> List.fold_left Int.add 0
 
-let data = open_in "input.txt" |> In_channel.input_lines |> List.map parse
+let data = Aoc2024.parse_lines parse
 
 let () =
   solve calc1 data |> print_int;

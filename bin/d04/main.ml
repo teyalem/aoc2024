@@ -45,12 +45,7 @@ let solve2 map =
   done;
   !cnt
 
-let data =
-  open_in "input.txt"
-  |> In_channel.input_lines
-  |> List.map (fun s ->
-      String.to_seq s |> Array.of_seq)
-  |> Array.of_list
+let data = Aoc2024.read_as_mat ()
 
 let () =
   solve1 data |> print_int;
