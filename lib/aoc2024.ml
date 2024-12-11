@@ -1,3 +1,6 @@
+let read_all () =
+  open_in "input.txt" |> In_channel.input_all 
+
 let read_lines () =
   open_in "input.txt" |> In_channel.input_lines 
 
