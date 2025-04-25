@@ -48,9 +48,27 @@ let number h =
 
 let solve1 (b, w) =
   calc b w
-  |>  number
+  |> number
+
+let print h =
+  let open Printf in
+  printf "digraph {\n";
+  Hashtbl.iter (fun k v ->
+      printf "%s -> %s\n" k v)
+    h;
+  printf "}\n"
+
+let solve2 (_, w) =
+  let h = Hashtbl.create 1000 in
+  List.iter (fun (p, (_, a, b)) ->
+      Hashtbl.add h a p;
+      Hashtbl.add h b p)
+    w;
+  print h
 
 let data = Aoc2024.parse parse
 
 let () =
-  solve1 data |> print_int
+  solve1 data |> print_int;
+  print_newline ();
+  solve2 data
